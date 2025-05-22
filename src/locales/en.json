@@ -1,0 +1,92 @@
+{
+  "homePage": {
+    "heroTitle": "Das Duas Uma",
+    "heroDescription1": "The wines of Das Duas Uma are not conventional — they are out-of-the-box experiences. Each one poses a challenge to those who taste it, who may like it... or not.",
+    "heroDescription2": "The idea is to walk the line between what some call complexity and others call a flaw. In the case of the white wine, we decided, in a controlled way, to introduce a deliberate 'defect' to give more complexity to the wine.",
+    "buyNow": "Buy Now",
+    "heroQuote": "There is a line that unites what another separates"
+  },
+  "common": {
+    "and": "and"
+  },
+  "featured": {
+    "title": "Our Collection",
+    "description": "Discover our handcrafted wines from New Zealand's finest vineyards",
+    "viewAll": "View All Wines"
+  },
+  "newsletter": {
+    "title": "Join Our Wine Club",
+    "description": "Receive exclusive access to limited releases and special offers.",
+    "placeholder": "Enter your email",
+    "subscribe": "Subscribe"
+  },
+  "language": {
+    "en": "English",
+    "pt": "Portuguese",
+    "selectLanguage": "Please select your language",
+    "continue": "Continue"
+  },
+  "sound": {
+    "enablePrompt": "For a better experience, enable sound",
+    "enable": "Enable Sound",
+    "disable": "Disable Sound"
+  },
+  "footer": {
+    "copyright": "© 2024 Das Duas Uma. All rights reserved.",
+    "changeLanguage": "Change language"
+  },
+  "loading": {
+    "loading": "Loading...",
+    "welcome": "Welcome"
+  },
+  "sensoryExperience": {
+    "title": "Sensory Experience",
+    "lowIntervention": {
+      "title": "What are low-intervention wines",
+      "description1": "Low-intervention wines are the purest expression of terroir, resulting from winemaking that respects time, nature, and the essence of the grape.",
+      "description2": "Without enological additives, artificial corrections, or excessive manipulations, these wines preserve their authenticity by reflecting not only the grape variety but also the environment and time in which they were conceived."
+    },
+    "defectsAsVirtues": {
+      "title": "Some defects that can be virtues",
+      "description": "Description",
+      "cause": "Cause",
+      "diacetil": {
+        "title": "Diacetyl",
+        "description": "A buttery aroma and flavor",
+        "cause": "It is produced during malolactic fermentation and results from the degradation of citric acid after malic acid has been consumed. Only at high levels is it considered a defect. At appropriate levels, it can be advantageous."
+      },
+      "oxidation": {
+        "title": "Oxidation",
+        "description": "A common defect particularly in white wines. Slight color change accompanied by an aroma with evident loss of fruit, 'past' apple, a certain woodiness and a flat taste with a dry and short finish.",
+        "cause": "Excessive contact of wine with oxygen, defective cork with poor tightness, fragile wine with low redox potential, advanced age of the wine."
+      },
+      "cooked": {
+        "title": "Cooked",
+        "description": "Aroma without freshness, tired, stewed, thin taste, without body and personality.",
+        "cause": "Wine exposed to high temperatures for a longer or shorter period of time. Unfortunately a common problem in many of our commercial establishments."
+      }
+    },
+    "theWine": {
+      "title": "The Wine",
+      "intro": "Each wine carries a story, and the journey begins with its first signs. Through attentive observation of its color, we can feel the touch of time and its complexity. Each shade tells a secret, each nuance of light reflects the character of the wine that is about to be unveiled.",
+      "instructions": "Start by filling the glass to one-third of its capacity, leaving room for the wine to breathe. Now, prepare yourself for a complete experience: observe with your eyes, feel with your nose, and finally, let the wine touch your mouth, each sense revealing part of this story.",
+      "eyes": {
+        "title": "Eyes",
+        "description": "The color of a white wine is the first sign of its time. When the tones dress in gold or amber, it means that time has left its marks — and with it came depth, maturity, and the promise of deeper and more complex flavors."
+      },
+      "nose": {
+        "title": "Nose",
+        "description1": "Approach the glass as if listening to a secret: without swirling, just feel the first breath of aromas that the wine reveals on its own.",
+        "description2": "Then, make the wine dance in the glass. Let it spin with intensity, as if awakening from a deep sleep. Inhale again — now the aromas gain body, revealing layers that were previously sleeping in silence."
+      },
+      "mouth": {
+        "title": "Mouth",
+        "description": "Now is the moment of encounter. The wine and the taster touch, like a gentle and delicate kiss. Let it spread, filling your mouth with a dance of flavors and textures."
+      },
+      "acetaldehyde": {
+        "title": "Acetaldehyde",
+        "description": "It is a chemical compound formed during fermentation and wine oxidation. It has a characteristic aroma of green apple, nuts, sherry, or even varnish. In some styles, such as Jerez Fino or Manzanilla, this aroma is desired. However, in wines that should not present it, it may indicate oxidation."
+      }
+    }
+  }
+}

@@ -21,6 +21,7 @@ This document extends the base [constitution.md](constitution.md) with user-spec
 
 §III.1 Code shall be clean, readable, and maintainable, following established conventions.
 §III.2 Functional programming paradigms should be favored where appropriate, enhancing predictability and testability.
+§III.3 Whenever writting styling code, it should ALWAYS be compatible with mobile.
 
 ### IV. Documentation and Communication
 

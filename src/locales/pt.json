@@ -1,0 +1,92 @@
+{
+  "homePage": {
+    "heroTitle": "Das Duas Uma",
+    "heroDescription1": "Os vinhos da Das Duas Uma não são convencionais — são experiências fora da caixa. Cada um lança um desafio a quem o prova, que pode gostar... ou não.",
+    "heroDescription2": "A ideia é mesmo andar no limite entre o que uns chamam de complexidade e outros de defeito. No caso do branco, decidimos, de forma controlada, pôr um 'defeito' propositado para dar mais complexidade ao vinho.",
+    "buyNow": "Comprar Agora",
+    "heroQuote": "Existe uma linha que une o que outra separa"
+  },
+  "common": {
+    "and": "e"
+  },
+  "featured": {
+    "title": "Nossa Coleção",
+    "description": "Descubra nossos vinhos artesanais dos melhores vinhedos da Nova Zelândia",
+    "viewAll": "Ver Todos os Vinhos"
+  },
+  "newsletter": {
+    "title": "Junte-se ao Nosso Clube de Vinhos",
+    "description": "Receba acesso exclusivo a lançamentos limitados e ofertas especiais.",
+    "placeholder": "Digite seu email",
+    "subscribe": "Inscrever-se"
+  },
+  "language": {
+    "en": "Inglês",
+    "pt": "Português",
+    "selectLanguage": "Por favor, selecione seu idioma",
+    "continue": "Continuar"
+  },
+  "sound": {
+    "enablePrompt": "Para uma melhor experiência, ative o som",
+    "enable": "Ativar Som",
+    "disable": "Desativar Som"
+  },
+  "footer": {
+    "copyright": "© 2024 Das Duas Uma. Todos os direitos reservados.",
+    "changeLanguage": "Mudar idioma"
+  },
+  "loading": {
+    "loading": "Carregando...",
+    "welcome": "Bem-vindo"
+  },
+  "sensoryExperience": {
+    "title": "Experiência Sensorial",
+    "lowIntervention": {
+      "title": "O que são vinhos de baixa intervenção",
+      "description1": "Vinhos de baixa intervenção são a expressão mais pura do terroir, resultantes de uma vinificação que respeita o tempo, a natureza e a essência da uva.",
+      "description2": "Sem aditivos enológicos, correções artificiais ou manipulações excessivas, os vinhos preservam sua autenticidade refletindo não apenas a casta, mas também o ambiente e o tempo em que foram concebidos."
+    },
+    "defectsAsVirtues": {
+      "title": "Alguns defeitos que podem ser virtudes",
+      "description": "Descrição",
+      "cause": "Causa",
+      "diacetil": {
+        "title": "Diacetil",
+        "description": "Um aroma e sabores amanteigados",
+        "cause": "É produzido durante a fermentação maloláctica e resulta da degradação do ácido cítrico depois do málico ter sido consumido. Só em níveis elevados é considerado um defeito. A níveis adequados pode ser vantajoso."
+      },
+      "oxidation": {
+        "title": "Oxidação",
+        "description": "Um defeito comum em particular nos brancos. À ligeira alteração de cor junta-se um aroma com perda evidente de fruto, maçã \"passada\", uma certa madeirização e uma prova plana com final seco e curto.",
+        "cause": "Excessivo contato do vinho com o oxigênio, rolha defeituosa com pouca estanquicidade, vinho frágil com fraco potencial redox, idade avançada do vinho."
+      },
+      "cooked": {
+        "title": "Cozido",
+        "description": "Aroma sem frescura, cansado, estufado, prova magra, sem corpo e personalidade.",
+        "cause": "Vinho exposto a altas temperaturas por um período mais ou menos longo de tempo. Infelizmente um problema comum em muitos dos nossos estabelecimentos comerciais."
+      }
+    },
+    "theWine": {
+      "title": "O Vinho",
+      "intro": "Cada vinho carrega uma história, e a jornada começa com os seus primeiros sinais. Através do olhar atento à sua cor, podemos sentir o toque do tempo e a sua complexidade. Cada tonalidade conta um segredo, cada nuance de luz reflete o caráter do vinho que está prestes a ser desvendado.",
+      "instructions": "Comece por encher o copo até um terço da sua capacidade, deixando espaço para que o vinho respirar. Agora, prepare-se para uma experiência completa: observe com os olhos, sinta com o nariz e, finalmente, deixe o vinho tocar na sua boca, cada sentido revelando uma parte dessa história.",
+      "eyes": {
+        "title": "Olhos",
+        "description": "A cor de um vinho branco é o primeiro sinal do seu tempo. Quando os tons se vestem de dourado ou âmbar, significa que o tempo deixou as suas marcas — e com ele, vieram a profundidade, a maturidade e a promessa de sabores mais densos e complexos."
+      },
+      "nose": {
+        "title": "Nariz",
+        "description1": "Aproxime o copo como quem escuta um segredo: sem girar, apenas sinta o primeiro sopro de aromas que o vinho revela por si só.",
+        "description2": "Em seguida, faça o vinho dançar no copo. Deixe que ele gire com intensidade, como se acordasse de um sono profundo. Inspire outra vez — agora os aromas ganham corpo, revelando camadas que antes dormiam em silêncio."
+      },
+      "mouth": {
+        "title": "Boca",
+        "description": "Agora, é o momento do encontro. O vinho e o provador se tocam, como um beijo suave e delicado. Deixe que ele se espalhe, preenchendo sua boca com uma dança de sabores e texturas."
+      },
+      "acetaldehyde": {
+        "title": "Acetaldeído",
+        "description": "É um composto químico formado durante a fermentação e a oxidação do vinho. Ele tem um aroma característico de maçã verde, nozes, xerez ou até verniz. Em alguns estilos, como o Jerez Fino ou Manzanilla, esse aroma é desejado. No entanto, em vinhos que não deveriam apresentá-lo, pode indicar oxidação."
+      }
+    }
+  }
+}
