@@ -8,10 +8,10 @@ export default function Footer() {
   return (
     <footer className="bg-[#f0e4c7] py-4 px-4">
       <div className="container mx-auto">
-        <div className="flex flex-wrap items-center justify-between">
+        <div className="flex flex-col items-center text-center md:flex-row md:justify-between md:text-left gap-y-2 md:gap-y-0">
           <div className="text-xs text-slate-600">{t('footer.copyright')}</div>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="flex flex-col items-center md:flex-row md:flex-wrap md:items-center gap-x-6 gap-y-2 mt-2 md:mt-0">
             <a
               href="https://theredcandyy.github.io/portfolio/"
               target="_blank"

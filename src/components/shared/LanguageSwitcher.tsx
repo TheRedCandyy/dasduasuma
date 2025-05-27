@@ -1,62 +1,27 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import SoundToggle from './Sound'
-import { useSoundStore } from '@/store/useSoundStore'
-
-type Language = 'en' | 'pt'
+import { Settings } from 'lucide-react'
+import LanguageModal from './LanguageModal'
 
 const LanguageSwitcher = () => {
-  const { t, i18n } = useTranslation()
-  const currentLanguage = i18n.language as Language
-
-  const handleLanguageChange = (language: Language) => {
-    i18n.changeLanguage(language)
-  }
+  const { t } = useTranslation()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex space-x-1">
+    <>
+      <div className="flex items-center gap-2">
         <button
-          className={`hover:cursor-pointer flex items-center p-1.5 rounded ${
-            currentLanguage === 'en'
-              ? 'bg-[#534c3e] text-white'
-              : 'bg-white text-black border border-gray-300'
-          }`}
-          onClick={() => handleLanguageChange('en')}
-          aria-label={t('language.en')}
-          title={t('language.en')}
+          onClick={() => setIsModalOpen(true)}
+          className="ml-2 text-slate-700 hover:text-slate-900 p-1.5 rounded-full hover:bg-slate-200 transition-colors"
+          aria-label={t('language.moreOptions', 'Language & Sound Options')}
+          title={t('language.moreOptions', 'Language & Sound Options')}
         >
-          <span className="w-5 h-3.5 rounded-sm overflow-hidden shadow-sm flex-shrink-0">
-            <img
-              src="/img/flags/en.svg"
-              alt="English flag"
-              className="w-full h-full object-cover"
-            />
-          </span>
-        </button>
-        <button
-          className={`hover:cursor-pointer flex items-center p-1.5 rounded ${
-            currentLanguage === 'pt'
-              ? 'bg-[#534c3e] text-white'
-              : 'bg-white text-black border border-gray-300'
-          }`}
-          onClick={() => handleLanguageChange('pt')}
-          aria-label={t('language.pt')}
-          title={t('language.pt')}
-        >
-          <span className="w-5 h-3.5 rounded-sm overflow-hidden shadow-sm flex-shrink-0">
-            <img
-              src="/img/flags/pt.svg"
-              alt="Portuguese flag"
-              className="w-full h-full object-cover"
-            />
-          </span>
+          <Settings size={18} />
         </button>
       </div>
 
-      <div className="ml-1 border-l pl-3 border-gray-300">
-        <SoundToggle minimal={true} />
-      </div>
-    </div>
+      <LanguageModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </>
   )
 }
 

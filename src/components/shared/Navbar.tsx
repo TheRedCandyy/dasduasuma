@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import CartButton from './CartButton'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -73,7 +72,7 @@ export default function Navbar() {
             transitionDelay: '150ms',
           }}
         >
-          <CartButton />
+          {/* <CartButton /> // CartButton removed for now */}
         </div>
       </div>
     </header>

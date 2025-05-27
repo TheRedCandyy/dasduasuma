@@ -1,10 +1,17 @@
 {
   "homePage": {
     "heroTitle": "Das Duas Uma",
-    "heroDescription1": "The wines of Das Duas Uma are not conventional — they are out-of-the-box experiences. Each one poses a challenge to those who taste it, who may like it... or not.",
-    "heroDescription2": "The idea is to walk the line between what some call complexity and others call a flaw. In the case of the white wine, we decided, in a controlled way, to introduce a deliberate 'defect' to give more complexity to the wine.",
+    "heroDescription1": "The wines of Das Duas Uma are not conventional — they are out-of-the-box experiences. Each one poses a challenge to those who taste it, who may like it... or not. The idea is to walk the line between what some call complexity and others call a flaw.",
+    "heroDescription2": "So... where does complexity end and a flaw begin? This wine has a little touch that, technically, could be seen as a flaw. But hey... I hope you don't even notice it!",
     "buyNow": "Buy Now",
     "heroQuote": "There is a line that unites what another separates"
+  },
+  "ageConfirmation": {
+    "title": "Age Confirmation",
+    "message": "This website contains information about alcoholic beverages. Please confirm you are of legal drinking age in your country of residence before entering.",
+    "yesButton": "Yes, I am",
+    "noButton": "No, I am not",
+    "error": "You must be of legal drinking age to visit this website."
   },
   "common": {
     "and": "and"
@@ -24,7 +31,8 @@
     "en": "English",
     "pt": "Portuguese",
     "selectLanguage": "Please select your language",
-    "continue": "Continue"
+    "continue": "Continue",
+    "moreOptions": "Language & Sound Options"
   },
   "sound": {
     "enablePrompt": "For a better experience, enable sound",
@@ -39,8 +47,8 @@
     "loading": "Loading...",
     "welcome": "Welcome"
   },
-  "sensoryExperience": {
-    "title": "Sensory Experience",
+  "sensorialExperience": {
+    "title": "Sensorial Experience",
     "lowIntervention": {
       "title": "What are low-intervention wines",
       "description1": "Low-intervention wines are the purest expression of terroir, resulting from winemaking that respects time, nature, and the essence of the grape.",
@@ -64,6 +72,11 @@
         "title": "Cooked",
         "description": "Aroma without freshness, tired, stewed, thin taste, without body and personality.",
         "cause": "Wine exposed to high temperatures for a longer or shorter period of time. Unfortunately a common problem in many of our commercial establishments."
+      },
+      "acetaldehyde": {
+        "title": "Acetaldehyde",
+        "description": "Penetrating and characteristic aroma that can recall green apple, nuts, sherry, or even varnish. In small quantities, it can go unnoticed, but in excess, it is easily identified and considered a defect, except in specific styles like Fino Sherry or Manzanilla, where it is desired.",
+        "cause": "Natural formation during alcoholic fermentation and especially during wine oxidation, when ethanol is converted to acetaldehyde through contact with oxygen. It can be a sign of poor conservation, defective corks, or prolonged exposure to air."
       }
     },
     "theWine": {
@@ -81,12 +94,39 @@
       },
       "mouth": {
         "title": "Mouth",
-        "description": "Now is the moment of encounter. The wine and the taster touch, like a gentle and delicate kiss. Let it spread, filling your mouth with a dance of flavors and textures."
+        "description": "Finally, bring the wine to your mouth. Let it dance across your palate, feel its texture, the vibrant acidity, the subtle sweetness, the tannins that structure, and the alcohol that warms. The finish, the persistence of flavors after swallowing, is the last chapter of this sensory discovery, the wine's signature."
       },
-      "acetaldehyde": {
-        "title": "Acetaldehyde",
-        "description": "It is a chemical compound formed during fermentation and wine oxidation. It has a characteristic aroma of green apple, nuts, sherry, or even varnish. In some styles, such as Jerez Fino or Manzanilla, this aroma is desired. However, in wines that should not present it, it may indicate oxidation."
+      "questionnaire": {
+        "title": "Final Questionnaire",
+        "likedWine": "Did you like the wine?",
+        "complexWine": "Did you find the wine complex?",
+        "defectQuestion": "Part of this wine has a deliberately induced defect. What do you think it is?",
+        "yourEmail": "Your email",
+        "submit": "Send Answers and Conclude",
+        "yes": "Yes",
+        "no": "No",
+        "feedbackThankYou": "Thank you for your feedback!",
+        "feedbackMissingEmail": "Please enter your email.",
+        "emailSubject": "Sensorial Experience Feedback",
+        "emailBodyHeader": "Questionnaire Answers:"
       }
+    },
+    "codeEntry": {
+      "title": "Sensorial Experience",
+      "description": "Enter the code found on the cork of your Das Duas Uma wine bottle to access an exclusive sensorial journey.",
+      "placeholder": "Enter your access code",
+      "submit": "Unlock Experience",
+      "verifying": "Verifying...",
+      "error": "Invalid code. Please check and try again.",
+      "hint": "Hint: The code can be found on the cork of your Das Duas Uma wine bottle."
+    },
+    "countdown": {
+      "begin": "Begin Experience"
+    },
+    "navigation": {
+      "next": "Continue",
+      "previous": "Back",
+      "finish": "Finish Experience"
     }
   }
 }

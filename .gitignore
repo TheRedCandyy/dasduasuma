@@ -27,3 +27,4 @@ dist-ssr
 # Personal
 personal
 personal.pub
+api/send_questionnaire_email.php

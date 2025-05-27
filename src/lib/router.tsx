@@ -6,6 +6,7 @@ import CheckoutPage from '@/pages/CheckoutPage'
 import PaymentSuccessPage from '@/pages/PaymentSuccessPage'
 import PaymentFailurePage from '@/pages/PaymentFailurePage'
 import NotFoundPage from '@/pages/NotFoundPage'
+import SensorialExperiencePage from '@/pages/SensorialExperiencePage'
 
 export const router = createBrowserRouter([
   {
@@ -34,5 +35,11 @@ export const router = createBrowserRouter([
         element: <PaymentFailurePage />,
       },
     ],
+  },
+  // Sensorial experience page is outside the root layout
+  {
+    path: '/sensorial-experience',
+    element: <SensorialExperiencePage />,
+    errorElement: <NotFoundPage />,
   },
 ])

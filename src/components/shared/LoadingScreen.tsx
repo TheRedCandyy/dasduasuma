@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { usePageLoading } from '@/hooks/usePageLoading'
 import SoundToggle from './Sound'
-import { useSoundStore } from '@/store/useSoundStore'
+import { lockScroll, forceUnlockScroll } from '@/utils/scrollLock'
+import { useSettingsStore } from '@/store/useSettingsStore'
 
 interface LoadingScreenProps {
   minDisplayTime?: number // Minimum time to show the loading screen in ms
@@ -13,54 +14,108 @@ const LoadingScreen = ({ minDisplayTime = 2000 }: LoadingScreenProps) => {
   const { isLoading: pageIsLoading } = usePageLoading()
   const [isVisible, setIsVisible] = useState(true)
   const [progress, setProgress] = useState(0)
-  const [languageSelected, setLanguageSelected] = useState(false)
-  const { soundEnabled } = useSoundStore()
+  const [preferencesChecked, setPreferencesChecked] = useState(false)
+  const [mountTime] = useState(() => Date.now())
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng)
-    setLanguageSelected(true)
-  }
+  // Get language state and setter from the settings store
+  const {
+    language: persistedLanguage,
+    languagePreferencePreviouslySet,
+    setLanguage: setPersistedLanguage,
+  } = useSettingsStore()
 
+  // Effect to check and apply persisted language preference
   useEffect(() => {
-    if (!languageSelected) return
-
-    const startTime = Date.now()
-
-    // Simulate loading progress
-    const interval = setInterval(() => {
-      setProgress(prev => {
-        const newProgress = prev + (100 - prev) * 0.1
-        return Math.min(newProgress, pageIsLoading ? 85 : 99) // Cap at 85% until page is loaded
-      })
-    }, 100)
-
-    // Handle the end of loading
-    const completeLoading = () => {
-      const elapsedTime = Date.now() - startTime
-
-      // Ensure minimum display time
-      const remainingTime = Math.max(0, minDisplayTime - elapsedTime)
-
-      setTimeout(() => {
-        setProgress(100)
-        setTimeout(() => setIsVisible(false), 500) // Fade out animation time
-      }, remainingTime)
+    if (!preferencesChecked) {
+      if (languagePreferencePreviouslySet && persistedLanguage) {
+        i18n.changeLanguage(persistedLanguage)
+      }
+      // Sound preference is handled by useSoundStore and its persist middleware, used within SoundToggle
+      setPreferencesChecked(true) // Mark that preferences have been initially processed by this component
     }
+  }, [preferencesChecked, persistedLanguage, languagePreferencePreviouslySet, i18n])
 
-    // When page is loaded, complete the loading process
-    if (!pageIsLoading) {
-      completeLoading()
+  const handleLanguageChange = useCallback(
+    (lng: string) => {
+      i18n.changeLanguage(lng)
+      setPersistedLanguage(lng) // Update the Zustand store, persist will save it
+    },
+    [i18n, setPersistedLanguage]
+  )
+
+  // Lock scrolling when the component is active
+  useEffect(() => {
+    if (isVisible) {
+      lockScroll()
+      return () => {
+        // unlockScroll() // Unlock is handled by forceUnlockScroll on timeout or if component unmounts earlier by other means
+      }
     }
+  }, [isVisible])
+
+  // Simulate loading progress while waiting for both language and page load
+  useEffect(() => {
+    // Wait until preferences are checked AND (a language preference was set OR it's the first time and user needs to pick)
+    if (!preferencesChecked || !isVisible) return
+    if (!languagePreferencePreviouslySet && !persistedLanguage) return // If never set, wait for user selection (UI will show)
+
+    let interval: NodeJS.Timeout | null = null
+    if (pageIsLoading) {
+      interval = setInterval(() => {
+        setProgress(prev => Math.min(prev + (100 - prev) * 0.1, 85))
+      }, 100)
+    } else {
+      interval = setInterval(() => {
+        setProgress(prev => Math.min(prev + (100 - prev) * 0.1, 99))
+      }, 100)
+    }
+    return () => {
+      if (interval) {
+        clearInterval(interval)
+      }
+    }
+  }, [
+    languagePreferencePreviouslySet,
+    persistedLanguage,
+    pageIsLoading,
+    isVisible,
+    preferencesChecked,
+  ])
+
+  // Only fade out and unmount after: language selected, page loaded, and min display time elapsed
+  useEffect(() => {
+    if (!preferencesChecked) return
+    if (!languagePreferencePreviouslySet && !persistedLanguage) return // If never set, wait for user selection
+    if (pageIsLoading) return
+
+    const elapsed = Date.now() - mountTime
+    const remainingTime = Math.max(0, minDisplayTime - elapsed)
+    setProgress(100)
+    const unmountTimer = setTimeout(() => {
+      forceUnlockScroll('LoadingScreen unmount timer')
+      setIsVisible(false)
+    }, remainingTime + 500)
 
     return () => {
-      clearInterval(interval)
+      clearTimeout(unmountTimer)
+      forceUnlockScroll('LoadingScreen cleanup unmount timer') // Ensure scroll is unlocked if effect cleans up early
     }
-  }, [pageIsLoading, minDisplayTime, languageSelected])
+  }, [
+    languagePreferencePreviouslySet,
+    persistedLanguage,
+    pageIsLoading,
+    minDisplayTime,
+    mountTime,
+    preferencesChecked,
+  ])
 
-  if (!isVisible) return null
+  if (!isVisible) {
+    return null
+  }
 
-  // Language selection screen
-  if (!languageSelected) {
+  // Show language/sound selection if preferences haven't been checked yet,
+  // OR if they have been checked but no language preference was previously set.
+  if (!preferencesChecked || !languagePreferencePreviouslySet) {
     return (
       <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#f0e4c7]">
         <div className="flex flex-col items-center text-center max-w-md px-6">
@@ -88,7 +143,7 @@ const LoadingScreen = ({ minDisplayTime = 2000 }: LoadingScreenProps) => {
 
               <div className="flex gap-4 justify-center w-full">
                 <button
-                  onClick={() => changeLanguage('en')}
+                  onClick={() => handleLanguageChange('en')}
                   className="flex-1 hover:cursor-pointer bg-[#534c3e] text-white px-6 py-3 rounded-md font-medium transition-all hover:bg-[#3a342c] focus:outline-none focus:ring-2 focus:ring-[#d9c278] flex items-center justify-center"
                 >
                   <span className="mr-2 w-6 h-4 rounded-sm overflow-hidden shadow-sm flex-shrink-0">
@@ -101,7 +156,7 @@ const LoadingScreen = ({ minDisplayTime = 2000 }: LoadingScreenProps) => {
                   {t('language.en')}
                 </button>
                 <button
-                  onClick={() => changeLanguage('pt')}
+                  onClick={() => handleLanguageChange('pt')}
                   className="flex-1 hover:cursor-pointer bg-[#534c3e] text-white px-6 py-3 rounded-md font-medium transition-all hover:bg-[#3a342c] focus:outline-none focus:ring-2 focus:ring-[#d9c278] flex items-center justify-center"
                 >
                   <span className="mr-2 w-6 h-4 rounded-sm overflow-hidden shadow-sm flex-shrink-0">

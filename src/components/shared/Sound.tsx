@@ -25,7 +25,7 @@ const SoundToggle = ({ minimal = false }: SoundToggleProps) => {
       audio.volume = 0.5
       audio.play().catch(error => {
         console.error('Error playing audio:', error)
-        setSoundEnabled(false)
+        // setSoundEnabled(false) // Zustand persist will handle initial state
       })
 
       return () => {
@@ -33,11 +33,17 @@ const SoundToggle = ({ minimal = false }: SoundToggleProps) => {
         audio.currentTime = 0
       }
     }
-  }, [soundEnabled, setSoundEnabled])
+  }, [soundEnabled]) // Removed setSoundEnabled from dependencies to avoid potential loops with cookie logic
+
+  const handleToggleSound = () => {
+    const newSoundState = !soundEnabled
+    setSoundEnabled(newSoundState)
+    // Cookies.set('userSoundPreference', String(newSoundState), { expires: 365 }) // Removed, Zustand persist handles this
+  }
 
   return (
     <button
-      onClick={() => setSoundEnabled(!soundEnabled)}
+      onClick={handleToggleSound} // Use new handler
       className={`hover:cursor-pointer flex items-center w-full justify-center ${minimal ? 'space-x-1' : 'space-x-2'} text-slate-800 focus:outline-none`}
       aria-label={soundEnabled ? t('sound.disable') : t('sound.enable')}
     >
